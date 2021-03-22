@@ -168,6 +168,9 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
             ),
           ),
         ),
+        SizedBox(
+          height: 8.0,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: _dots,

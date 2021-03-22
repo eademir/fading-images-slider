@@ -1,16 +1,45 @@
-# fading_images_slider_example
+###FADING IMAGES SLIDER
 
-Demonstrates how to use the fading_images_slider plugin.
+It's easy to use. You can look the example.
 
-## Getting Started
+[![Demo Images Slider](https://j.gifs.com/Qn3KxY.gif)](https://www.youtube.com/watch?v=SkP5dmfp3yE)
 
-This project is a starting point for a Flutter application.
+```dart
+import 'package:fading_images_slider/fading_images_slider.dart';
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Container(
+    height: 500,
+    child: FadingImagesSlider(
+      textAlignment: Alignment.center,
+      texts: [
+        Text(
+          'test',
+          style: kTextStyle,
+        ),
+        Text(
+          'test2',
+          style: kTextStyle,
+        )
+      ],
+      images: [
+        Image.asset('images/image1.jpg'),
+        Image.asset('images/image2.jpg')
+      ],
+    ),
+  ),
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+
+| Types | Properties | 
+| --- |:---:| 
+| List\<Image> | images 
+| List\<Text> | texts
+| IconData | icon
+| double | iconSize
+| Color | activeIconColor
+| Color | passiveIconColor
+| bool | autoFade
+| Duration | animationDuration
+| Duration | fadeInterval
+| Alignment | textAlignment
