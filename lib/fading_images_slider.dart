@@ -17,8 +17,8 @@ class FadingImagesSlider extends StatefulWidget {
     this.textAlignment = Alignment.bottomCenter,
   });
 
-  final List<Image> images;
-  final List<Text> texts;
+  final List<Widget> images;
+  final List<Widget> texts;
   final IconData icon;
   final double iconSize;
   final Color activeIconColor;
@@ -41,10 +41,14 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
     }
   }
 
+  void setStateIfMounted(f) {
+    if (mounted) setState(f);
+  }
+
   List<AnimatedOpacity> _animatedWidgetList = [];
   void _addImagesToList() {
     int i = 0;
-    for (Image image in widget.images) {
+    for (Container image in widget.images) {
       _animatedWidgetList.add(AnimatedOpacity(
         opacity: _numberOfImage == i ? 1.0 : 0.0,
         duration: widget.animationDuration,
@@ -116,9 +120,10 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
         if (_onTapped) {
           timer.cancel();
         } else
-          setState(() {
+          setStateIfMounted(() {
             _numberOfImageIncrement();
           });
+        timer.cancel();
       });
     }
   }
@@ -139,7 +144,7 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
           child: GestureDetector(
             onTap: () {
               _numberOfImageIncrement();
-              setState(() {
+              setStateIfMounted(() {
                 _onTapped = true;
               });
             },
@@ -150,15 +155,15 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
               end = details.localFocalPoint.dx;
             },
             onScaleEnd: (details) {
-              setState(() {
+              setStateIfMounted(() {
                 _onTapped = true;
               });
-              if (start < end) {
-                setState(() {
+              if (start > end) {
+                setStateIfMounted(() {
                   _numberOfImageIncrement();
                 });
               } else {
-                setState(() {
+                setStateIfMounted(() {
                   _numberOfImageDecrement();
                 });
               }
