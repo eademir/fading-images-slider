@@ -33,8 +33,8 @@ Container(
 
 | Types | Properties | 
 | --- |:---:| 
-| List\<Image> | images
-| List\<Text> | texts
+| List\<Widget> | images
+| List\<Widget> | texts
 | IconData | icon
 | double | iconSize
 | Color | activeIconColor

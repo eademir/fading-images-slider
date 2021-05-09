@@ -2,10 +2,10 @@ name: fading_images_slider
 description: An images slider widget. Supports infinite scroll. It's easy to use and edit.
 homepage: https://github.com/eademir/fading-images-slider
 repository: https://github.com/eademir/fading-images-slider
-version: 0.0.1+1
+version: 0.0.2+2
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.20.0"
 
 dependencies:

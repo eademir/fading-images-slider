@@ -11,30 +11,30 @@ import 'package:fading_images_slider/fading_images_slider.dart';
 Container(
     height: 500,
     child: FadingImagesSlider(
-      textAlignment: Alignment.center,
-      texts: [
-        Text(
-          'test',
-          style: kTextStyle,
-        ),
-        Text(
-          'test2',
-          style: kTextStyle,
-        )
-      ],
-      images: [
-        Image.asset('images/image1.jpg'),
-        Image.asset('images/image2.jpg')
-      ],
+        textAlignment: Alignment.center,
+        texts: [
+            Text(
+                'test',
+                style: kTextStyle,
+            ),
+            Text(
+                'test2',
+                style: kTextStyle,
+            )
+        ],
+        images: [
+            Image.asset('images/image1.jpg'),
+            Image.asset('images/image2.jpg')
+        ],
     ),
-  ),
+),
 
 ```
 
 | Types | Properties | 
 | --- |:---:| 
-| List\<Image> | images 
-| List\<Text> | texts
+| List\<Widget> | images
+| List\<Widget> | texts
 | IconData | icon
 | double | iconSize
 | Color | activeIconColor

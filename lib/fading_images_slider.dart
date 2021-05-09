@@ -5,24 +5,33 @@ import 'package:flutter/material.dart';
 
 class FadingImagesSlider extends StatefulWidget {
   FadingImagesSlider({
+    ///You can change anything about dots.
     this.activeIconColor = Colors.black,
+
+    ///You can change anything about dots.
     this.passiveIconColor = Colors.grey,
+
+    ///You can change anything about dots.
+    this.icon = Icons.circle,
     this.animationDuration = const Duration(milliseconds: 800),
     this.autoFade = true,
-    this.icon = Icons.circle,
     this.iconSize = 8,
-    @required this.images,
-    @required this.texts,
+
+    ///images and texts is required properties and list length must be same.
+    required this.images,
+
+    ///images and texts is required properties and list length must be same.
+    required this.texts,
     this.fadeInterval = const Duration(milliseconds: 5000),
     this.textAlignment = Alignment.bottomCenter,
   });
 
   final List<Widget> images;
   final List<Widget> texts;
-  final IconData icon;
-  final double iconSize;
-  final Color activeIconColor;
-  final Color passiveIconColor;
+  final IconData? icon;
+  final double? iconSize;
+  final Color? activeIconColor;
+  final Color? passiveIconColor;
   final bool autoFade;
   final Duration animationDuration;
   final Duration fadeInterval;
@@ -41,6 +50,7 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
     }
   }
 
+  ///avoid memory leak.
   void setStateIfMounted(f) {
     if (mounted) setState(f);
   }
@@ -48,7 +58,7 @@ class _FadingImagesSliderState extends State<FadingImagesSlider> {
   List<AnimatedOpacity> _animatedWidgetList = [];
   void _addImagesToList() {
     int i = 0;
-    for (Container image in widget.images) {
+    for (Widget image in widget.images) {
       _animatedWidgetList.add(AnimatedOpacity(
         opacity: _numberOfImage == i ? 1.0 : 0.0,
         duration: widget.animationDuration,
