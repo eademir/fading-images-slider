@@ -1,5 +1,6 @@
 name: fading_images_slider_example
 description: Demonstrates how to use the fading_images_slider plugin.
+version: 1.0.0
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
